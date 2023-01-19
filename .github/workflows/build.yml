@@ -18,11 +18,6 @@ jobs:
         curl -o clang.gz https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android11-dev/clang-r383902b.tar.gz
         mkdir -p ~/tc/clang/
         tar -xf clang.gz -C ~/tc/clang/
-    - name: Set date
-      id: get-date
-      run: |
-        ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-        echo "date=$(/bin/date -u '+%d%m%Y%I%M')" >> $GITHUB_ENV
     - name: configure
       run: |
         cd ~/kernel/
