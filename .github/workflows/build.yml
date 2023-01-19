@@ -2,8 +2,6 @@ name: Kernel Build CI
 
 on:
   push:
-    branches:
-      - upstream
   pull_request:
 
 jobs:
@@ -21,7 +19,7 @@ jobs:
         tar -xf clang.gz -C ~/tc/clang/
     - name: Set date
       id: get-date
-      run: | # generate date for kernel
+      run: |
         ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
         echo "date=$(/bin/date -u '+%d%m%Y%I%M')" >> $GITHUB_ENV
     - name: configure
